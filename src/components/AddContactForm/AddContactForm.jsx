@@ -2,7 +2,7 @@ import { Formik, Field, ErrorMessage, Form } from 'formik';
 
 import * as Yup from 'yup';
 import { addNewContact } from '../../redux/operations';
-import { getModalStatus } from '../../redux/selectors';
+import { selectModalStatus } from '../../redux/selectors';
 
 import { toggleModal } from '../../redux/modalSlice';
 import { useDispatch } from 'react-redux';
@@ -13,7 +13,7 @@ import { Button } from '../Button/Button';
 import css from './AddContactForm.module.css';
 export const AddContactForm = () => {
   const dispatch = useDispatch();
-  const modalActive = useSelector(getModalStatus);
+  const modalActive = useSelector(selectModalStatus);
   const phoneRegExp =
     /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
 
