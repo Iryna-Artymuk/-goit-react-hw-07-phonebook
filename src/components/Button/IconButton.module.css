@@ -1,0 +1,41 @@
+.button {
+  background-color: transparent;
+}
+.button svg {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: #78788c;
+}
+.button svg :hover,
+.button svg :focus {
+  fill: pink;
+  stroke: pink;
+  font-weight: 700;
+}
+
+.addContactButton {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.searchButton {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+}
+
+.sortButton {
+  position: absolute;
+  top: 30px;
+  right: 90px;
+}
+
+.closeModalButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}

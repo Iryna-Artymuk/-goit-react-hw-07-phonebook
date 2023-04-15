@@ -1,0 +1,23 @@
+.filter {
+  width: 0%;
+  display: none;
+  padding: 0px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  /* scale: 0; */
+  transition: all 0.3s;
+  border-bottom: 2px solid #bebed2;
+}
+.filter:focus {
+  border-bottom: 2px solid #78788c;
+}
+
+.activeFilter {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  scale: 1;
+}

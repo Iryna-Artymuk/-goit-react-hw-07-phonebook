@@ -1,0 +1,30 @@
+.sortWrapper {
+  /* display: block; */
+  display: none;
+}
+.sort {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  /* scale: 0; */
+  transition: all 0.3s;
+  border-bottom: 2px solid #bebed2;
+}
+
+.activeSort {
+  display: block;
+}
+
+.sortLabel {
+  /* margin: 10px 0; */
+  /* padding-bottom: 10px; */
+  display: block;
+  width: 100%;
+  color: #78788c;
+  border-bottom: 1px solid #78788c;
+  font-size: 18px;
+}
