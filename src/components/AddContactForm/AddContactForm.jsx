@@ -10,8 +10,8 @@ import { useSelector } from 'react-redux';
 
 import { Button } from '../Button/Button';
 
-import css from './Form.module.css';
-export const ContactForm = () => {
+import css from './AddContactForm.module.css';
+export const AddContactForm = () => {
   const dispatch = useDispatch();
   const modalActive = useSelector(getModalStatus);
   const phoneRegExp =

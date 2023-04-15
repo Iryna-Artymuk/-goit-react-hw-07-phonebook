@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { Layout } from 'components/Layout/Layout';
 import { ContactsList } from '../ContactsList/ContactsList';
-import { ContactForm } from '../Form/Form';
+import { AddContactForm } from '../AddContactForm/AddContactForm';
 import Modal from '../Modal/Modal';
 
 import IconButton from '../Button/IconButton';
@@ -15,7 +15,7 @@ import { Sort } from '../Sort/Sort';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {
-  getModalStatus,
+  selectModalStatus,
   selectIsLoading,
   selectError,
   selectStoreContacts,
@@ -30,7 +30,7 @@ export const App = () => {
   const [activeSort, setActiveSort] = useState(false);
   const [activeFilter, setActiveFilter] = useState(false);
 
-  const modalActive = useSelector(getModalStatus);
+  const modalActive = useSelector(selectModalStatus);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const contactsList = useSelector(selectStoreContacts);
@@ -90,7 +90,7 @@ export const App = () => {
 
         {modalActive && (
           <Modal togglModal={modalAction}>
-            <ContactForm />
+            <AddContactForm />
           </Modal>
         )}
         <div>

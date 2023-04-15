@@ -1,5 +1,3 @@
-import { useSelector } from 'react-redux';
-
 export const selectStoreContacts = state => {
   //   console.log(state);
   return state.contacts.items;
@@ -18,6 +16,6 @@ export const selectStoreFilter = state => {
   return state.filter.searchValue;
 };
 
-export const getModalStatus = state => {
+export const selectModalStatus = state => {
   return state.modalActive;
 };
