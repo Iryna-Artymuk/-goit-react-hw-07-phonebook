@@ -7,7 +7,7 @@ export const fetchContactsData = createAsyncThunk(
   'contact/fetchContacts',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('');
+      const response = await axios.get('ContactList');
       // При успішному запиті повертаємо проміс із даними
       return response.data;
     } catch (e) {
@@ -46,7 +46,7 @@ export const deleteContact = createAsyncThunk(
       const response = await axios.delete(`ContactList/${contactId}`);
       return response.data;
     } catch (e) {
-      return thunkAPI.rejectWithValue("sorry can't delete   contact ");
+      return thunkAPI.rejectWithValue("sorry can't delete contact ");
     }
   }
 );

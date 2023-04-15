@@ -1,4 +1,4 @@
-import { getStoreFilter } from '../../redux/selectors';
+import { selectStoreFilter } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setfilter } from '../../redux/filterSlice';
@@ -10,7 +10,7 @@ import css from './Filter.module.css';
 import clsx from 'clsx';
 
 export const Filter = ({ activeFilter }) => {
-  const filterValue = useSelector(getStoreFilter);
+  const filterValue = useSelector(selectStoreFilter);
   const dispatch = useDispatch();
   const handelFilterChange = filterValue => {
     console.log(filterValue);
