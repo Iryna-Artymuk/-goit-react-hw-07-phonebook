@@ -9,7 +9,7 @@ import IconButton from '../Button/IconButton';
 import { MdPersonAdd, MdSearch } from 'react-icons/md';
 import { BsSortAlphaDown } from 'react-icons/bs';
 
-import { Filter } from '../Filter/Filter';
+import { FilterByName } from '../FilterByName/FilterByName';
 import { Sort } from '../Sort/Sort';
 
 import { useSelector } from 'react-redux';
@@ -60,7 +60,7 @@ export const App = () => {
     <Layout>
       <div className={css.contentWrapper}>
         <h2 className={css.title}>Contacts</h2>
-        <Filter activeFilter={activeFilter} />
+        <FilterByName activeFilter={activeFilter} />
         <Sort activeSort={activeSort} />
 
         <IconButton

@@ -6,10 +6,10 @@ import { setfilter } from '../../redux/filterSlice';
 // який обробляє filterReducer і перезаписує
 // значення фільтру в store
 
-import css from './Filter.module.css';
+import css from './FilterByName.module.css';
 import clsx from 'clsx';
 
-export const Filter = ({ activeFilter }) => {
+export const FilterByName = ({ activeFilter }) => {
   const filterValue = useSelector(selectStoreFilter);
   const dispatch = useDispatch();
   const handelFilterChange = filterValue => {
