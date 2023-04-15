@@ -18,7 +18,7 @@ import {
   getModalStatus,
   selectIsLoading,
   selectError,
-  getStoreContacts,
+  selectStoreContacts,
 } from '../../redux/selectors';
 import { fetchContactsData } from '../../redux/operations';
 
@@ -33,7 +33,7 @@ export const App = () => {
   const modalActive = useSelector(getModalStatus);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const contactsList = useSelector(getStoreContacts);
+  const contactsList = useSelector(selectStoreContacts);
   const dispatch = useDispatch();
   // console.log(modalActive);
   const modalAction = () => {
@@ -59,10 +59,6 @@ export const App = () => {
   return (
     <Layout>
       <div className={css.contentWrapper}>
-        <div>
-          {isLoading && <p>Loading contacts...</p>}
-          {error && <p>{error}</p>}
-        </div>
         <h2 className={css.title}>Contacts</h2>
         <Filter activeFilter={activeFilter} />
         <Sort activeSort={activeSort} />
@@ -97,6 +93,10 @@ export const App = () => {
             <ContactForm />
           </Modal>
         )}
+        <div>
+          {isLoading && <p>Loading contacts...</p>}
+          {error && <p>{error}</p>}
+        </div>
         {contactsList && <ContactsList />}
       </div>
     </Layout>

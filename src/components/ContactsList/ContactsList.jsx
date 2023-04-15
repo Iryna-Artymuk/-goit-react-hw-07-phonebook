@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import { getStoreContacts } from '../../redux/selectors';
+import { selectStoreContacts } from '../../redux/selectors';
 import { getStoreFilter } from '../../redux/selectors';
-import { Contact } from '../Contact/Contact';
+import { ContactItem } from './ContactItem/ContactItem';
 
 import css from './ContactList.module.css';
 export const ContactsList = data => {
   // console.log(data);
-  const contactsList = useSelector(getStoreContacts);
+  const contactsList = useSelector(selectStoreContacts);
   const filter = useSelector(getStoreFilter);
   // console.log(filter);
 
@@ -16,7 +16,7 @@ export const ContactsList = data => {
   return (
     <ul className={css.contactList}>
       {filteredContacts.map(contactData => (
-        <Contact key={contactData.id} data={contactData} />
+        <ContactItem key={contactData.id} data={contactData} />
       ))}
     </ul>
   );

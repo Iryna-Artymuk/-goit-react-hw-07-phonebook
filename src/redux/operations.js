@@ -7,14 +7,14 @@ export const fetchContactsData = createAsyncThunk(
   'contact/fetchContacts',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('ContactList');
+      const response = await axios.get('');
       // При успішному запиті повертаємо проміс із даними
       return response.data;
     } catch (e) {
       // При помилці запиту повертаємо проміс
       // який буде відхилений з текстом помилки
       //thunkAPI  це обєкт в якому є різні методи для роботи з createAsyncThunk
-      return thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue("sorry can't load your contact list");
     }
   }
 );
@@ -32,7 +32,9 @@ export const addNewContact = createAsyncThunk(
       });
       return response.data;
     } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue(
+        "sorry can't add  new contact to your list"
+      );
     }
   }
 );
@@ -44,7 +46,7 @@ export const deleteContact = createAsyncThunk(
       const response = await axios.delete(`ContactList/${contactId}`);
       return response.data;
     } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      return thunkAPI.rejectWithValue("sorry can't delete   contact ");
     }
   }
 );
