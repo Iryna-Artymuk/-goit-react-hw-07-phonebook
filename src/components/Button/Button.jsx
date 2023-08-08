@@ -1,21 +1,11 @@
-import clsx from 'clsx';
-import css from './Button.module.css';
+import { StyledButton } from './StyledButton';
 
-export const Button = ({
-  selected = false,
-  type = 'button',
-  children,
-  ...otherProps
-}) => {
+const Button = ({ children, onClick, type, ...allyProps }) => {
   return (
-    <button
-      className={clsx(css.btn, {
-        [css.isSelected]: selected === true,
-      })}
-      type={type}
-      {...otherProps}
-    >
+    <StyledButton type={type} onClick={onClick} {...allyProps}>
       {children}
-    </button>
+    </StyledButton>
   );
 };
+
+export default Button;

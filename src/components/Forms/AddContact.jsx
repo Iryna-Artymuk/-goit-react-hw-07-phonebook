@@ -1,19 +1,21 @@
-import { Formik, Field, ErrorMessage, Form } from 'formik';
-
+import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { addNewContact } from '../../redux/operations';
-import { selectModalStatus } from '../../redux/selectors';
-
-import { toggleModal } from '../../redux/modalSlice';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 
-import { Button } from '../Button/Button';
 
-import css from './AddContactForm.module.css';
-export const AddContactForm = () => {
+import {
+  StyledErrorMessage,
+  StyledField,
+  StyledForm,
+  StyledLable,
+} from './StyledForm';
+import IconButton from '../Button/Button';
+import { addContact } from '../../redux/operations';
+// import { useSelector } from 'react-redux';
+export default function AddContactForm({ toggleModal, deActivateAddForm }) {
   const dispatch = useDispatch();
-  const modalActive = useSelector(selectModalStatus);
+  // const modalActive = useSelector(getModalStatus);
   const phoneRegExp =
     /^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,3})|(\(?\d{2,3}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$/;
 
@@ -26,9 +28,11 @@ export const AddContactForm = () => {
   });
 
   const handleSubmit = value => {
-    console.log(value);
-    dispatch(addNewContact(value));
-    dispatch(toggleModal(!modalActive));
+    //  console.log(value);
+
+
+    dispatch(addContact(value));
+    toggleModal();
   };
   return (
     <Formik
@@ -41,37 +45,45 @@ export const AddContactForm = () => {
       // contactsReducer буде обробляти цей action і додавати новий контакт в список сонтаків
       onSubmit={(value, action) => {
         handleSubmit(value);
+        deActivateAddForm();
         action.resetForm();
       }}
       validationSchema={ContactValidationSchema}
     >
-      <Form className={css.form}>
-        <label>
+      <StyledForm
+      //   className={css.form}
+      >
+        <StyledLable>
           Name
-          <Field
-            className={css.input}
+          <StyledField
+            // className={css.input}
             type="text"
             name="name"
             placeholder="Enter name"
+            autoFocus
           />
-        </label>
-        <ErrorMessage className={css.error} name="name" component="div" />
-        <label htmlFor="phone_number">
+        </StyledLable>
+        <StyledErrorMessage
+          // className={css.error}
+          name="name"
+          component="div"
+        />
+        <StyledLable htmlFor="phone_number">
           Phone number
-          <Field
-            className={css.input}
+          <StyledField
+            // className={css.input}
             type="tel"
             name="phone_number"
             placeholder="Enter phone number"
           />
-        </label>
-        <ErrorMessage
-          className={css.error}
+        </StyledLable>
+        <StyledErrorMessage
+          //   className={css.error}
           name="phone_number"
           component="div"
         />
-        <Button type="submit">Add contact </Button>
-      </Form>
+        <IconButton type="submit">Add contact</IconButton>
+      </StyledForm>
     </Formik>
   );
-};
+}

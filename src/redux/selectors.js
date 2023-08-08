@@ -1,21 +1,19 @@
-export const selectStoreContacts = state => {
+export const contacts = state => {
   //   console.log(state);
-  return state.contacts.items;
-};
-export const selectFiteredContats = state => {
-  const contactsList = selectStoreContacts(state);
-  const filter = selectStoreFilter(state);
-  return contactsList.filter(contact =>
-    contact.name.toLowerCase().includes(filter)
-  );
-};
-export const selectIsLoading = state => state.contacts.isLoading;
-export const selectError = state => state.contacts.error;
-export const selectStoreFilter = state => {
-  // console.log(state.filter.searchValue);
-  return state.filter.searchValue;
+  return state.contacts.contacts;
 };
 
-export const selectModalStatus = state => {
+export const getStoreFilter = state => {
+  // console.log('state: ', state);
+
+  return state.filter.filter;
+};
+
+export const getActiveContactId = state => {
+  // console.log('state: ', state);
+
+  return state.contacts.activeContactId;
+};
+export const modalStatus = state => {
   return state.modalActive;
 };

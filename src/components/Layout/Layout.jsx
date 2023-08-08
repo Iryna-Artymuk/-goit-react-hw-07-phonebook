@@ -1,5 +1,19 @@
-import css from './Layout.module.css';
+import React from 'react';
+import { StyledContainer } from './StyledLayout';
 
-export const Layout = ({ children }) => {
-  return <main className={css.container}>{children}</main>;
-};
+
+// import ChangeThemeButton from 'components/Theme/TheamButton';
+// console.log('ChangeThemeButton : ', ChangeThemeButton);
+
+function Layout({ children, HandleThemeChange }) {
+  return (
+  
+      <StyledContainer >
+       
+        {children}
+      </StyledContainer>
+ 
+  );
+}
+
+export default Layout;
