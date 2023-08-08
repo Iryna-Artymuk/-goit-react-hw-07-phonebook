@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useSelector } from 'react-redux';
-import { getActiveContactId } from './selectors';
+
 
 axios.defaults.baseURL = "https://643a7f81bd3623f1b9b4b1c4.mockapi.io/myContacts";
 

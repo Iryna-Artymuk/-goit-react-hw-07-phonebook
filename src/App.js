@@ -1,10 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
-
-import { GlobalStyles } from './GlobalStyles';
-import Layout from './components/Layout/Layout';
-import { light } from './components/Theme/Theme';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
+import { GlobalStyles } from './GlobalStyles';
+
+import { fetchContacts } from './redux/operations';
+
+import { light } from './components/Theme/Theme';
+import Layout from './components/Layout/Layout';
 import { ContactsList } from './components/ContactsList/ContactsList';
 import ContactsListOptions from './components/ContactListOptions/ContactsListOptions';
 import AddContactForm from './components/Forms/AddContact';
@@ -13,8 +16,8 @@ import { Filter } from './components/Filter/Filter';
 import ChangeContactForm from './components/Forms/ChangeContact ';
 import { ChangeThemeButton } from './components/Theme/TheamButton';
 import Header from './components/Header/Header';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from './redux/operations';
+
+
 // import { useMemo } from 'react';
 function App() {
   const [selectedTheme, setSelectedTheme] = useState(light);
