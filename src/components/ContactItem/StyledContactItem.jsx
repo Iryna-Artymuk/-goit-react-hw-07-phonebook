@@ -6,7 +6,7 @@ export const Card = styled.div`
   width: var(--size);
   height: var(--size);
   background: ${({ theme }) => theme.colors.background};
- padding:10px;
+  padding: 10px;
   border-radius: 20px;
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
@@ -14,14 +14,13 @@ export const Card = styled.div`
 `;
 
 export const CardInfo = styled.div`
-width:100%;
-height:100%;
+  width: 100%;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
-
 `;
 
 // name and phone
@@ -41,26 +40,71 @@ export const CardSubtitle = styled.div`
   text-align: center;
 `;
 /*Image*/
-export const CardAvatar =styled.div.attrs(props => ({
+export const CardAvatar = styled.div.attrs(props => ({
   style: {
-  
-    backgroundImage: `url(${props.avatar||avatar})`,
-    backgroundSize: "cover"
+    backgroundImage: `url(${props.avatar || avatar})`,
+    backgroundSize: 'cover',
   },
 }))`
- --size: 100px;
+  --size: 100px;
 
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
-
-
 `;
 
 // buttons
 export const Options = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
+`;
+
+export const StyledInput = styled.input`
+  width: 0;
+  height: 0;
+  visibility: hidden;
+
+  &:checked + label svg {
+    fill: ${({ theme }) => theme.colors.hoverTextColor};
+  }
+  &:hover + label svg {
+    fill: ${({ theme }) => theme.colors.hoverTextColor};
+  }
+`;
+
+export const StyledLabel = styled.label`
+  position: relative;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  background: ${({ theme }) => theme.colors.accentColor};
+  border-radius: 50%;
+  text-align: center;
+  &:hover {
+    /* background: ${({ theme }) => theme.colors.textColor}; */
+    /* input[title] {
+      visibility: visible;
+    } */
+  }
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    fill: ${({ theme }) => theme.colors.textColor};
+  }
+  cursor: pointer;
+  input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+
+    &:checked + svg {
+      fill: ${({ theme }) => theme.colors.hoverTextColor};
+    }
+  }
 `;

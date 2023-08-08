@@ -16,7 +16,8 @@ import { Filter } from './components/Filter/Filter';
 import ChangeContactForm from './components/Forms/ChangeContact ';
 import { ChangeThemeButton } from './components/Theme/TheamButton';
 import Header from './components/Header/Header';
-
+import { Outlet, Route, Routes } from 'react-router-dom';
+import { FavouriteContactsList } from 'components/ContactsList/FavouriteContactsList';
 
 // import { useMemo } from 'react';
 function App() {
@@ -72,11 +73,30 @@ function App() {
         |
         <main>
           {showFilter && <Filter />}
-          <ContactsList
-            toggleModal={toggleModal}
-            activateChangeForm={activateChangeForm}
-          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <ContactsList
+                  toggleModal={toggleModal}
+                  activateChangeForm={activateChangeForm}
+                />
+              }
+            />
+            <Route
+              path="/favouriteContacts"
+              element={
+                <FavouriteContactsList
+                  toggleModal={toggleModal}
+                  activateChangeForm={activateChangeForm}
+                />
+              }
+            />
 
+            {/* <Route path="*" element={<ErrorPage />} /> */}
+          </Routes>
+
+          <Outlet />
           {showModal && (
             <Modal
               toggleModal={toggleModal}

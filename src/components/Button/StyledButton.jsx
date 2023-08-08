@@ -27,6 +27,7 @@ export const StyledButton = styled.button`
 `;
 
 export const IconButton = styled(StyledButton)`
+  position: relative;
   width: 3em;
   height: 3em;
   border-radius: 50%;

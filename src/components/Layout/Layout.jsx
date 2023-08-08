@@ -7,12 +7,10 @@ import { StyledContainer } from './StyledLayout';
 
 function Layout({ children, HandleThemeChange }) {
   return (
-  
-      <StyledContainer >
-       
-        {children}
-      </StyledContainer>
- 
+    <StyledContainer>
+      {children}
+
+    </StyledContainer>
   );
 }
 
