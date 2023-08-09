@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const StyledHeader = styled.header`
@@ -8,26 +9,37 @@ export const StyledHeader = styled.header`
   left: 0;
   z-index: 10;
   height: 80px;
-  align-items: flex-end;
-  padding-bottom: 10px;
   display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 10px;
   background: ${({ theme }) => theme.colors.background};
-  @media only screen and (max-width: 450px) {
-    display: block;
-    justify-content: space-between;
-    text-align: center;
+
+  @media only screen and (min-width: 620px) {
+    flex-direction: row;
   }
-  span {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 3.3px;
-    color: ${({ theme }) => theme.colors.textColor};
-    @media only screen and (max-width: 450px) {
-      display: inline-block;
-      margin-bottom: 5px;
-    }
+`;
+
+export const StyledList = styled.ul`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  @media only screen and (min-width: 620px)  {
+    width: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
   }
+  li {
+  }
+`;
+export const StyledNavLink = styled(NavLink)`
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 3.3px;
+  color: ${({ theme }) => theme.colors.textColor};
 `;

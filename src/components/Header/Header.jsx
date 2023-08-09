@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledHeader } from './StyledHeader';
+import { StyledHeader, StyledList, StyledNavLink } from './StyledHeader';
 import { NavLink } from 'react-router-dom';
 
 // import Navigation from '../Navigation/Navigation'
@@ -8,14 +8,14 @@ import { NavLink } from 'react-router-dom';
 export default function Header({ children }) {
   return (
     <StyledHeader>
-     <ul>
+     <StyledList>
         <li>
-          <NavLink to="/">My Contacts</NavLink>
+          <StyledNavLink to="/">My Contacts</StyledNavLink>
         </li>
         <li>
-          <NavLink to="/favouriteContacts">Favourite</NavLink>
+          <StyledNavLink to="/favouriteContacts">Favourite</StyledNavLink>
         </li>
-      </ul>
+      </StyledList>
       {children}
     </StyledHeader>
   );

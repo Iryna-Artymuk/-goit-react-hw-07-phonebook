@@ -15,7 +15,7 @@ root.render(
     {/* <PersistGate loading={<p>loading...</p>} persistor={persistor}> */}
     {/* <React.StrictMode> */}
     <StyleSheetManager shouldForwardProp={isPropValid}>
-      <BrowserRouter>
+      <BrowserRouter basename="/goit-react-hw-07-phonebook">
         <App />
       </BrowserRouter>
     </StyleSheetManager>

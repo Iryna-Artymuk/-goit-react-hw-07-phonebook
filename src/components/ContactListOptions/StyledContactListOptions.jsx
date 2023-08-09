@@ -15,16 +15,17 @@ import { styled } from 'styled-components';
 // `;
 
 export const OptionsList = styled.ul`
-  width: 70%;
-
+  width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  @media only screen and (max-width: 450px) {
-    width: 60%;
-    margin: auto;
-  }
-  li {
-    padding: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  @media only screen and (min-width: 620px) {
+    width: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
   }
 `;
 // export const Styledspan = styled.span`

@@ -5,7 +5,6 @@ export const StyledList = styled.ul`
   justify-content: center;
   gap: 30px;
   flex-wrap: wrap;
-  margin-top: 77px;
 
   li {
     /* width: 100%; */

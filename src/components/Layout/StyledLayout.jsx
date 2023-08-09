@@ -2,10 +2,10 @@ import { styled } from 'styled-components';
 
 export const StyledContainer = styled.div`
   max-width: 1220px;
-
+  height: calc(100vh - 121px);
   /* width: 1200px; */
   /* не задаємо фіксовану ширину щоб контейнер був гумовим  */
-  margin: auto;
+  margin: 90px auto 0;
   padding: 10px;
   /* outline: 2px solid red; */
 `;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import { Toaster } from 'react-hot-toast';
 
 import { GlobalStyles } from './GlobalStyles';
 
@@ -16,8 +17,11 @@ import { Filter } from './components/Filter/Filter';
 import ChangeContactForm from './components/Forms/ChangeContact ';
 import { ChangeThemeButton } from './components/Theme/TheamButton';
 import Header from './components/Header/Header';
-import { Outlet, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { FavouriteContactsList } from 'components/ContactsList/FavouriteContactsList';
+import { getError, getIsLoading } from 'redux/selectors';
+import Loader from 'components/Loader';
+import ErrorPage from 'components/ErrorPage/ErrorPage';
 
 // import { useMemo } from 'react';
 function App() {
@@ -28,12 +32,10 @@ function App() {
   const [showFilter, setShowFilter] = useState(false);
   const [showAddForm, setShowAddForm] = useState(false);
   const [showChangeForm, setShowChangeForm] = useState(false);
-  // console.log('selectedTheme: ', selectedTheme);
+  const isLoading = useSelector(getIsLoading);
 
-  // console.log('showChangeForm: ', showChangeForm);
-  // console.log('showAddForm: ', showAddForm);
+  const error = useSelector(getError);
 
-  // const store = useSelector(state => state);
   const handleThemeChange = theme => setSelectedTheme(theme);
 
   const toggleModal = () => {
@@ -61,26 +63,26 @@ function App() {
   return (
     <ThemeProvider theme={selectedTheme || light}>
       <GlobalStyles />
+      <Toaster />
+      <Header>
+        <ContactsListOptions
+          toggleFilter={toggleFilter}
+          toggleModal={toggleModal}
+          activateAddForm={activateAddForm}
+        />
+        <ChangeThemeButton handleThemeChange={handleThemeChange} />
+      </Header>
       <Layout>
-        <Header>
-          <ContactsListOptions
-            toggleFilter={toggleFilter}
-            toggleModal={toggleModal}
-            activateAddForm={activateAddForm}
-          />
-          <ChangeThemeButton handleThemeChange={handleThemeChange} />
-        </Header>
-        |
+        {error && <ErrorPage />}
+        {isLoading && <Loader />}
         <main>
           {showFilter && <Filter />}
+
           <Routes>
             <Route
               path="/"
               element={
-                <ContactsList
-                  toggleModal={toggleModal}
-                  activateChangeForm={activateChangeForm}
-                />
+                <ContactsList toggleModal={toggleModal} activateChangeForm={activateChangeForm} />
               }
             />
             <Route
@@ -96,7 +98,6 @@ function App() {
             {/* <Route path="*" element={<ErrorPage />} /> */}
           </Routes>
 
-          <Outlet />
           {showModal && (
             <Modal
               toggleModal={toggleModal}
@@ -104,10 +105,7 @@ function App() {
               deActivateChangeForm={deActivateChangeForm}
             >
               {showAddForm && (
-                <AddContactForm
-                  deActivateAddForm={deActivateAddForm}
-                  toggleModal={toggleModal}
-                />
+                <AddContactForm deActivateAddForm={deActivateAddForm} toggleModal={toggleModal} />
               )}
               {showChangeForm && (
                 <ChangeContactForm

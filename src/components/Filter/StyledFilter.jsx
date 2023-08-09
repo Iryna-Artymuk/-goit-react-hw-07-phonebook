@@ -5,7 +5,7 @@ export const StyledFilter = styled.input`
   height: 40px;
   display: block;
   padding: 0 10px 0 10px;
-  margin: 80px auto 20px;
+  margin: 0 auto 20px;
   font-size: 18px;
   background: none;
   border: none;
