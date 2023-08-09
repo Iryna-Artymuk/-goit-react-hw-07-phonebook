@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyledHeader, StyledList, StyledNavLink } from './StyledHeader';
-import { NavLink } from 'react-router-dom';
 
 // import Navigation from '../Navigation/Navigation'
 // import { StyledContainer } from '../Layout/StyledLayout'
@@ -8,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 export default function Header({ children }) {
   return (
     <StyledHeader>
-     <StyledList>
+      <StyledList>
         <li>
           <StyledNavLink to="/">My Contacts</StyledNavLink>
         </li>
