@@ -20,7 +20,9 @@ export const OptionsList = styled.ul`
   align-items: center;
   justify-content: center;
   gap: 20px;
-
+  @media only screen and (max-width: 400px) {
+    justify-content: flex-start;
+  }
   @media only screen and (min-width: 620px) {
     width: 50%;
     display: flex;

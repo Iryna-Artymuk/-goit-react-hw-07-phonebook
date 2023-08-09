@@ -6,13 +6,12 @@ export const StyledThemeLabel = styled.label`
   width: 50px;
   height: 20px;
   position: absolute;
-  top: 10px;
-  right: 5px;
+  top: 5px;
+  right: 8px;
   display: block;
   background: linear-gradient(180deg, #777, #686767);
   border-radius: 200px;
-  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
   cursor: pointer;
   z-index: 100;
 

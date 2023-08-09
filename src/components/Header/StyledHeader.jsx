@@ -9,6 +9,7 @@ export const StyledHeader = styled.header`
   left: 0;
   z-index: 10;
   height: 80px;
+  padding: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,6 +19,7 @@ export const StyledHeader = styled.header`
 
   @media only screen and (min-width: 620px) {
     flex-direction: row;
+    align-items: flex-end;
   }
 `;
 
@@ -34,14 +36,17 @@ export const StyledList = styled.ul`
     align-items: flex-end;
     justify-content: space-around;
   }
+  @media only screen and (max-width: 400px) {
+    justify-content: flex-start;
+  }
   li {
   }
 `;
 export const StyledNavLink = styled(NavLink)`
   position: relative;
-  font-size: 24px;
+  /* font-size: 24px; */
   font-weight: 700;
-  letter-spacing: 3.3px;
+  letter-spacing: 1.3px;
   color: ${({ theme }) => theme.colors.textColor};
   &.active:before {
     content: '';
@@ -52,5 +57,10 @@ export const StyledNavLink = styled(NavLink)`
     left: 0;
     border-radius: 3px;
     background: ${({ theme }) => theme.colors.accentColor};
+  }
+
+  @media only screen and (min-width: 620px) {
+    font-size: 24px;
+    letter-spacing: 3.3px;
   }
 `;
