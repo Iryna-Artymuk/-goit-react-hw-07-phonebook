@@ -28,7 +28,7 @@ export const StyledList = styled.ul`
   justify-content: center;
   gap: 20px;
 
-  @media only screen and (min-width: 620px)  {
+  @media only screen and (min-width: 620px) {
     width: 50%;
     display: flex;
     align-items: flex-end;
@@ -38,8 +38,19 @@ export const StyledList = styled.ul`
   }
 `;
 export const StyledNavLink = styled(NavLink)`
+  position: relative;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 3.3px;
   color: ${({ theme }) => theme.colors.textColor};
+  &.active:before {
+    content: '';
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    border-radius: 3px;
+    background: ${({ theme }) => theme.colors.accentColor};
+  }
 `;
