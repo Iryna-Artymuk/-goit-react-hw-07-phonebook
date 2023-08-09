@@ -10,7 +10,6 @@ import {
   CardSubtitle,
   Options,
   StyledLabel,
-
 } from './StyledContactItem';
 
 import { useDispatch } from 'react-redux';
@@ -48,9 +47,7 @@ export const Contact = ({ data, toggleModal, activateChangeForm }) => {
     <li>
       <Card>
         <CardInfo>
-          <CardAvatar avatar={data.avatar}>
-            {/* <img src={avatar} alt="" /> */}
-          </CardAvatar>
+          <CardAvatar avatar={data.avatar}>{/* <img src={avatar} alt="" /> */}</CardAvatar>
           <CardTitle> {data.name}</CardTitle>
           <CardSubtitle> {data.phone_number}</CardSubtitle>
           <Options>
@@ -68,7 +65,7 @@ export const Contact = ({ data, toggleModal, activateChangeForm }) => {
                 toggleModal();
               }}
             >
-              <BsFillPencilFill />
+              <BsFillPencilFill size={24} />
             </IconButton>
             <IconButton type="button" onClick={handelDelete}>
               <MdClose size={24} />

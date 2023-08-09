@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const StyledButton = styled.button`
-  width: 40%;
+  width: 40px;
   height: 40px;
   background: ${({ theme }) => theme.colors.accentColor};
   border-radius: 8px;
@@ -13,8 +13,8 @@ export const StyledButton = styled.button`
   }
   svg {
     display: inline-block;
-    width: 2em;
-    height: 2em;
+    /* width: 2em;
+    height: 2em; */
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
@@ -28,8 +28,8 @@ export const StyledButton = styled.button`
 
 export const IconButton = styled(StyledButton)`
   position: relative;
-  width: 3em;
-  height: 3em;
+  /* width: 3em;
+  height: 3em; */
   border-radius: 50%;
   margin: 0;
 `;
