@@ -24,7 +24,7 @@ export const addContact = createAsyncThunk('contacts/addContact', async (formVal
   };
   try {
     const response = await axios.post('ContactList', newContact);
-    response && toast.success('Sucseccfully added ');
+    response && toast.success('Successfully added ');
     return response.data;
   } catch (error) {
     toast.error('This is an error!');
@@ -38,7 +38,7 @@ export const changeContact = createAsyncThunk(
 
     try {
       const response = await axios.put(`/ContactList/${newContactData.id}`, newContactData);
-      response && toast.success('Sucseccfully changed');
+      response && toast.success('Successfully changed');
       return response.data;
     } catch (error) {
       toast.error('This is an error!');
@@ -53,8 +53,8 @@ export const changeFavouriteStatus = createAsyncThunk(
     try {
       const response = await axios.put(`/ContactList/${newContactData.id}`, newContactData);
       newContactData.isFavourite
-        ? toast.success('Sucseccfully added to favourite')
-        : toast.success('Sucseccfully removed from favourite');
+        ? toast.success('Successfully added to favourite')
+        : toast.success('Successfully removed from favourite');
       return response.data;
     } catch (error) {
       toast.error('This is an error!');
