@@ -6,11 +6,7 @@ import { BsSortAlphaDown, BsSortAlphaDownAlt } from 'react-icons/bs';
 import { sortAtoZ, sortZtoA } from '../../redux/contactsSlice';
 import { IconButton } from '../Button/StyledButton';
 
-export default function ContactsListOptions({
-  toggleModal,
-  toggleFilter,
-  activateAddForm,
-}) {
+export default function ContactsListOptions({ toggleModal, toggleFilter, activateAddForm }) {
   const dispatch = useDispatch();
   const handelSortAtoZ = () => {
     dispatch(sortAtoZ());
@@ -29,22 +25,22 @@ export default function ContactsListOptions({
             toggleModal();
           }}
         >
-          <MdPersonAdd />
+          <MdPersonAdd size={24} />
         </IconButton>
       </li>
       <li>
         <IconButton type="button" onClick={toggleFilter}>
-          <MdSearch />
+          <MdSearch size={24} />
         </IconButton>
       </li>
       <li>
         <IconButton type="button" onClick={handelSortAtoZ}>
-          <BsSortAlphaDown />
+          <BsSortAlphaDown size={24} />
         </IconButton>
       </li>
       <li>
         <IconButton type="button" onClick={handelSortZtoA}>
-          <BsSortAlphaDownAlt />
+          <BsSortAlphaDownAlt size={24} />
         </IconButton>
       </li>
     </OptionsList>
