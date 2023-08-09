@@ -65,6 +65,7 @@ export const changeFavouriteStatus = createAsyncThunk(
 export const deleteContact = createAsyncThunk('contacts/deleteContact', async (id, thunkAPI) => {
   try {
     const response = await axios.delete(`/ContactList/${id}`);
+    response && toast.success('Successfully removed ');
     return response.data;
   } catch (error) {
     toast.error('This is an error!');
